@@ -30,16 +30,18 @@ pipeline {
 
         }
 
-        stage('Test'){
+        stage(Install Dependency){
             steps {
                 script{
-                    echo "TEST PIPELINE TESTING"
+                    sh """
+                        npm install
+                   """
                 }
             }
 
         }
 
-        stage('Deploy') {
+       /* stage('Deploy') {
             input {
                 message "Should we continue?"
                 ok "Yes, we should."
@@ -55,7 +57,7 @@ pipeline {
                     echo 'Deploying..'
                 }
             }
-        }
+        }*/
     }
 
     post {
